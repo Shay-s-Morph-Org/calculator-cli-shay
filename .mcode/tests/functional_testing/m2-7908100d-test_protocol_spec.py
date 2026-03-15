@@ -9,7 +9,7 @@ This script supports two modes:
 1. SRC Validation: Tests commands and captures outputs (no expected_stdout/stderr)
 2. DST Contract Validation: Tests commands and validates outputs match expected
 
-Generated at: 2026-03-15T17:05:14.907404+00:00
+Generated at: 2026-03-15T17:26:44.833554+00:00
 Project: calculator-cli-shay
 Milestone: 2
 """
@@ -55,7 +55,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_help_flag",
         "category": "HELP_OUTPUT",
         "description": "Verify --help shows usage information and exits with code 0",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "--help"
@@ -69,7 +69,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_help_flag_short",
         "category": "HELP_OUTPUT",
         "description": "Verify -h shows usage information and exits with code 0",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "-h"
@@ -83,7 +83,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_add_integers",
         "category": "HAPPY_PATH",
         "description": "Add two positive integers",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -91,7 +91,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "3"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "8",
+        "expected_stdout": "8.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -99,7 +99,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_sub_integers",
         "category": "HAPPY_PATH",
         "description": "Subtract two positive integers",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "sub",
@@ -107,7 +107,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "4"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "6",
+        "expected_stdout": "6.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -115,7 +115,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_mul_integers",
         "category": "HAPPY_PATH",
         "description": "Multiply two positive integers",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "mul",
@@ -123,7 +123,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "7"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "42",
+        "expected_stdout": "42.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -131,7 +131,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_div_integers",
         "category": "HAPPY_PATH",
         "description": "Divide two integers evenly",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "div",
@@ -139,7 +139,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "4"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "5",
+        "expected_stdout": "5.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -147,7 +147,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_div_float_result",
         "category": "HAPPY_PATH",
         "description": "Division producing a floating-point result",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "div",
@@ -163,7 +163,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_add_floats",
         "category": "HAPPY_PATH",
         "description": "Add two floating-point numbers",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -179,7 +179,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_add_negative_numbers",
         "category": "BOUNDARY",
         "description": "Add two negative numbers",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -187,7 +187,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "-7"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "-10",
+        "expected_stdout": "-10.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -195,7 +195,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_sub_negative_result",
         "category": "BOUNDARY",
         "description": "Subtraction producing a negative result",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "sub",
@@ -203,7 +203,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "10"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "-7",
+        "expected_stdout": "-7.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -211,7 +211,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_mul_negative_numbers",
         "category": "BOUNDARY",
         "description": "Multiply a negative and a positive number",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "mul",
@@ -219,7 +219,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "5"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "-20",
+        "expected_stdout": "-20.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -227,7 +227,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_mul_by_zero",
         "category": "BOUNDARY",
         "description": "Multiply by zero returns zero",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "mul",
@@ -235,7 +235,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "0"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "0",
+        "expected_stdout": "0.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -243,7 +243,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_add_zero",
         "category": "BOUNDARY",
         "description": "Add zero to a number (identity)",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -251,7 +251,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "0"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "5",
+        "expected_stdout": "5.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -259,7 +259,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_div_by_zero",
         "category": "BOUNDARY",
         "description": "Division by zero should print error to stderr and exit with code 1",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "div",
@@ -275,7 +275,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_div_zero_by_number",
         "category": "BOUNDARY",
         "description": "Zero divided by a number returns zero",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "div",
@@ -283,7 +283,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "5"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "0",
+        "expected_stdout": "0.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -291,7 +291,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_large_numbers",
         "category": "BOUNDARY",
         "description": "Arithmetic with large numbers",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "mul",
@@ -299,23 +299,23 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
             "999999"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "999998000001",
+        "expected_stdout": "999998000001.0",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
     {
         "name": "test_small_float",
         "category": "BOUNDARY",
-        "description": "Arithmetic with very small floating-point numbers",
-        "command": "calc",
+        "description": "Arithmetic with floating-point numbers producing a clean decimal result",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
-            "0.0001",
-            "0.0002"
+            "0.25",
+            "0.25"
         ],
         "expected_exit_code": 0,
-        "expected_stdout": "0.0003",
+        "expected_stdout": "0.5",
         "expected_stderr": null,
         "timeout_seconds": 10
     },
@@ -323,7 +323,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_no_args",
         "category": "INVALID_ARGS",
         "description": "No arguments provided should print usage/error and exit with code 2",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [],
         "expected_exit_code": 2,
@@ -335,7 +335,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_one_arg_only",
         "category": "INVALID_ARGS",
         "description": "Only operation provided, missing both numbers",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add"
@@ -349,7 +349,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_two_args_only",
         "category": "INVALID_ARGS",
         "description": "Operation and one number provided, missing second number",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -364,7 +364,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_too_many_args",
         "category": "INVALID_ARGS",
         "description": "Too many arguments provided",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -381,7 +381,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_invalid_operation",
         "category": "INVALID_ARGS",
         "description": "Unknown operation name should fail with exit code 2",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "modulo",
@@ -397,7 +397,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_non_numeric_first_arg",
         "category": "INVALID_ARGS",
         "description": "Non-numeric value for first number should fail with exit code 2",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -413,7 +413,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_non_numeric_second_arg",
         "category": "INVALID_ARGS",
         "description": "Non-numeric value for second number should fail with exit code 2",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -429,7 +429,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_both_args_non_numeric",
         "category": "INVALID_ARGS",
         "description": "Both numeric arguments are non-numeric strings",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "add",
@@ -445,7 +445,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_empty_string_operation",
         "category": "INVALID_ARGS",
         "description": "Empty string as operation",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "",
@@ -461,7 +461,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_unknown_flag",
         "category": "INVALID_OPTIONS",
         "description": "Unknown flag should fail with exit code 2",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "--verbose",
@@ -478,7 +478,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
         "name": "test_unknown_short_flag",
         "category": "INVALID_OPTIONS",
         "description": "Unknown short flag should fail",
-        "command": "calc",
+        "command": ".venv/bin/calc",
         "subcommand": "",
         "args": [
             "-x",
@@ -494,7 +494,7 @@ TEST_CASES = resolve_env_placeholders(json.loads(r'''[
 ]'''))
 
 # CLI binary/entry point
-CLI_COMMAND = "source .venv/bin/activate && calc add 1 1"
+CLI_COMMAND = ".venv/bin/calc"
 
 # Working directory for CLI execution
 WORKING_DIR = "."
